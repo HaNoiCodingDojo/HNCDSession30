@@ -12,8 +12,9 @@ class BrainfuckInterpreter:
         return self._cells
 
     def eval(self, commands) :
-        nextCommand = self.__commands[commands[0]]
-        nextCommand( self )
+        for nextCommandChar in commands:
+            nextCommand = self.__commands[nextCommandChar]
+            nextCommand( self )
 
     def commandPlus(self):
         self._cells[0] += 1
