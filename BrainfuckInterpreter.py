@@ -23,13 +23,17 @@ class BrainfuckInterpreter:
         self._cells[0] -= 1
         self._cells[0] %= 256
 
-    def commandOutput(self):
+    def commandDot(self):
         self._output += str(chr(self._cells[0]))
+
+    def commandGreat(self):
+        pass
 
     __commands = {
         "+": commandPlus,
         "-": commandMinus,
-        ".": commandOutput,
+        ".": commandDot,
+        ">": commandGreat,
         }
 
 class BrainfuckInterpreterTest(unittest.TestCase):
