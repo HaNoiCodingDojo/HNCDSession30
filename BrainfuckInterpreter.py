@@ -7,8 +7,22 @@ class BrainfuckInterpreter:
     def cells(self):
         return self._cells
 
-    def eval(self, command):
-        self._cells[0] += 1
+    def eval(self, commands) :
+        nextCommand = __commands[commands.pop()]
+        nextCommand.apply( self )
+
+    class commandPlus():
+        def apply( self, interpreter ):
+            interpreter.cells()[0] += 1
+
+    class commandMinus():
+        def apply( self, interpreter ):
+            interpreter.cells()[0] -= 1
+
+    __commands = {
+        "+": commandPlus,
+        "-": commandMinus,
+        }
         
 class BrainfuckInterpreterTest(unittest.TestCase):
 
