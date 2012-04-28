@@ -6,7 +6,7 @@ class BrainfuckInterpreter:
         self._output = ""
 
     def output(self):
-        return "\0"
+        return self._output
 
     def cells(self):
         return self._cells
@@ -23,7 +23,7 @@ class BrainfuckInterpreter:
         self._cells[0] %= 256
 
     def commandOutput(self):
-        pass
+        self._output += chr(self._cells[0])
 
     __commands = {
         "+": commandPlus,
