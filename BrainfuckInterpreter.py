@@ -23,7 +23,7 @@ class BrainfuckInterpreter:
         self._cells[0] %= 256
 
     def commandOutput(self):
-        self._output.append( str(chr(self._cells[0])) )
+        self._output += str(chr(self._cells[0]))
 
     __commands = {
         "+": commandPlus,
@@ -34,7 +34,10 @@ class BrainfuckInterpreter:
 class BasicPythonStringTest(unittest.TestCase):
     def test_null_strings(self):
         self.assertEquals( "\0", chr(0) )
-        
+
+    def test_null_string_appending( self ):
+        self.assertEquals( "\1",  "" + chr(1) )
+
 class BrainfuckInterpreterTest(unittest.TestCase):
 
     def test_the_truth(self):
