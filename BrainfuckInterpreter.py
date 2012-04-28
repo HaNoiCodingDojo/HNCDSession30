@@ -30,6 +30,10 @@ class BrainfuckInterpreter:
         "-": commandMinus,
         ".": commandOutput,
         }
+
+class BasicPythonStringTest(unittest.TestCase):
+    def test_null_strings(self):
+        self.assertEquals( "\0", chr(0) )
         
 class BrainfuckInterpreterTest(unittest.TestCase):
 
