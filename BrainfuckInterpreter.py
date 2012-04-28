@@ -3,6 +3,10 @@ import unittest
 class BrainfuckInterpreter:
     def __init__ (self):
         self._cells = [0] * 30000
+        self._output = ""
+
+    def output(self):
+        return "\0"
 
     def cells(self):
         return self._cells
@@ -18,9 +22,13 @@ class BrainfuckInterpreter:
         self._cells[0] -= 1
         self._cells[0] %= 256
 
+    def commandOutput(self):
+        pass
+
     __commands = {
         "+": commandPlus,
         "-": commandMinus,
+        ".": commandOutput,
         }
         
 class BrainfuckInterpreterTest(unittest.TestCase):
@@ -48,6 +56,7 @@ class BrainfuckInterpreterTest(unittest.TestCase):
         myInterpreter = BrainfuckInterpreter()
         myInterpreter.eval(".")
         self.assertEquals("\0",myInterpreter.output())
+
 
 if __name__ == "__main__":
 	unittest.main()
