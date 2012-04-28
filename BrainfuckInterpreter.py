@@ -27,7 +27,7 @@ class BrainfuckInterpreter:
         self._output += str(chr(self._cells[0]))
 
     def commandGreat(self):
-        pass
+        self._cells[1] += 1
 
     __commands = {
         "+": commandPlus,
