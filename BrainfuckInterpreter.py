@@ -14,7 +14,7 @@ class BrainfuckInterpreter:
 
     def eval(self, commands) :
         for nextCommandChar in commands:
-            nextCommand = self.__commands[nextCommandChar]
+            nextCommand = self.__commands.get(nextCommandChar, lambda x: x)
             nextCommand( self )
 
     def commandPlus(self):
