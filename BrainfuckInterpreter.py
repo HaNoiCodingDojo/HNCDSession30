@@ -4,6 +4,7 @@ class BrainfuckInterpreter:
     def __init__ (self):
         self._cells = [0] * 30000
         self._output = ""
+        self.dataPointer = 0
 
     def output(self):
         return self._output
@@ -17,17 +18,17 @@ class BrainfuckInterpreter:
             nextCommand( self )
 
     def commandPlus(self):
-        self._cells[0] += 1
+        self._cells[self.dataPointer] += 1
 
     def commandMinus(self):
-        self._cells[0] -= 1
-        self._cells[0] %= 256
+        self._cells[self.dataPointer] -= 1
+        self._cells[self.dataPointer] %= 256
 
     def commandDot(self):
         self._output += str(chr(self._cells[0]))
 
     def commandGreat(self):
-        self._cells[1] += 1
+        self.dataPointer += 1
 
     __commands = {
         "+": commandPlus,
