@@ -76,5 +76,10 @@ class BrainfuckInterpreterTest(unittest.TestCase):
         expected = before + 1
         self.assertEquals(expected, after)
 
+    def test_great_plus_dot_as_program_output_backslash_one(self):
+        myInterpreter = BrainfuckInterpreter()
+        myInterpreter.eval('>+.')
+        self.assertEquals("\1", myInterpreter.output())       
+
 if __name__ == "__main__":
 	unittest.main()
