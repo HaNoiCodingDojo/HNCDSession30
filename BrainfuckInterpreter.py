@@ -8,8 +8,8 @@ class BrainfuckInterpreter:
         return self._cells
 
     def eval(self, commands) :
-        nextCommand = __commands[commands.pop()]
-        nextCommand.apply( self )
+        nextCommand = self.__commands[commands[0]]
+        nextCommand().apply( self )
 
     class commandPlus():
         def apply( self, interpreter ):
@@ -18,6 +18,7 @@ class BrainfuckInterpreter:
     class commandMinus():
         def apply( self, interpreter ):
             interpreter.cells()[0] -= 1
+            interpreter.cells()[0] %= 256
 
     __commands = {
         "+": commandPlus,
