@@ -1,5 +1,7 @@
 import unittest
-
+class BrainfuckInterpreter:
+    def __init__ (self):
+        
 class BrainfuckInterpreterTest(unittest.TestCase):
 
     def test_the_truth(self):
