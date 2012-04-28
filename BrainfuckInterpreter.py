@@ -32,13 +32,6 @@ class BrainfuckInterpreter:
         ".": commandOutput,
         }
 
-class BasicPythonStringTest(unittest.TestCase):
-    def test_null_strings(self):
-        self.assertEquals( "\0", chr(0) )
-
-    def test_null_string_appending( self ):
-        self.assertEquals( "\1",  "" + chr(1) )
-
 class BrainfuckInterpreterTest(unittest.TestCase):
 
     def test_the_truth(self):
@@ -70,6 +63,13 @@ class BrainfuckInterpreterTest(unittest.TestCase):
         myInterpreter.eval("+.")
         self.assertEquals("\1", myInterpreter.output())       
 
+    def test_great_plus_as_program_increase_the_second_cell_by_one(self):
+        myInterpreter = BrainfuckInterpreter()
+        before = myInterpreter.cells()[1]
+        myInterpreter.eval('>+')
+        after = myInterpreter.cells()[1]
+        expected = before + 1
+        self.assertEquals(expected, after)
 
 if __name__ == "__main__":
 	unittest.main()
