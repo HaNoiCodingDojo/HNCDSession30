@@ -43,7 +43,11 @@ class BrainfuckInterpreterTest(unittest.TestCase):
         after = myInterpreter.cells()[0]
         expected = (before - 1) % 256
         self.assertEquals(expected, after)
-
+    
+    def test_dot_as_a_program_output_null(self):
+        myInterpreter = BrainfuckInterpreter()
+        myInterpreter.eval(".")
+        self.assertEquals("\0",myInterpreter.output())
 
 if __name__ == "__main__":
 	unittest.main()
