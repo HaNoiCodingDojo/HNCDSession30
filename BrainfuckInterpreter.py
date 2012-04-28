@@ -12,11 +12,11 @@ class BrainfuckInterpreter:
         nextCommand( self )
 
     def commandPlus(self):
-        self.cells()[0] += 1
+        self._cells[0] += 1
 
     def commandMinus(self):
-        self.cells()[0] -= 1
-        self.cells()[0] %= 256
+        self._cells[0] -= 1
+        self._cells[0] %= 256
 
     __commands = {
         "+": commandPlus,
