@@ -1,6 +1,14 @@
 import unittest
+
 class BrainfuckInterpreter:
     def __init__ (self):
+        self._cells = [0] * 30000
+
+    def cells(self):
+        return self._cells
+
+    def eval(self, command):
+        self._cells[0] += 1
         
 class BrainfuckInterpreterTest(unittest.TestCase):
 
