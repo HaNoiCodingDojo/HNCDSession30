@@ -22,5 +22,15 @@ class BrainfuckInterpreterTest(unittest.TestCase):
         after = myInterpreter.cells()[0]
         expected = before+1
         self.assertEquals(expected, after)
+
+    def test_minus_as_a_program_decrease_the_first_cell_by_one(self):
+        myInterpreter = BrainfuckInterpreter()
+        before = myInterpreter.cells()[0]
+        myInterpreter.eval("-")
+        after = myInterpreter.cells()[0]
+        expected = (before - 1) % 256
+        self.assertEquals(expected, after)
+
+
 if __name__ == "__main__":
 	unittest.main()
