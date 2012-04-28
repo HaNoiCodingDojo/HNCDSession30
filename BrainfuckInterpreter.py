@@ -25,7 +25,7 @@ class BrainfuckInterpreter:
         self._cells[self.dataPointer] %= 256
 
     def commandDot(self):
-        self._output += str(chr(self._cells[0]))
+        self._output += str(chr(self._cells[self.dataPointer]))
 
     def commandGreat(self):
         self.dataPointer += 1
