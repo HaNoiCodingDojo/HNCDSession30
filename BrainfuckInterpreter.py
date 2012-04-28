@@ -86,6 +86,11 @@ class BrainfuckInterpreterTest(unittest.TestCase):
         myInterpreter.eval('hello')
         self.assertEquals("", myInterpreter.output())
         self.assertEquals([0] * 30000, myInterpreter.cells())
+
+    def test_great_less_plus_program_first_cell_is_1(self):
+        myInterpreter = BrainfuckInterpreter()
+        myInterpreter.eval('><+')
+        self.assertEquals(1, myInterpreter.cells()[0])
     
 
 if __name__ == "__main__":
