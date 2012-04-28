@@ -79,7 +79,14 @@ class BrainfuckInterpreterTest(unittest.TestCase):
     def test_great_plus_dot_as_program_output_backslash_one(self):
         myInterpreter = BrainfuckInterpreter()
         myInterpreter.eval('>+.')
-        self.assertEquals("\1", myInterpreter.output())       
+        self.assertEquals("\1", myInterpreter.output())
+    
+    def test_hello_as_a_program_do_nothing_and_output_nothing(self):
+        myInterpreter = BrainfuckInterpreter()
+        myInterpreter.eval('hello')
+        self.assertEquals("", myInterpreter.output())
+        self.assertEquals([0] * 30000, myInterpreter.cells())
+    
 
 if __name__ == "__main__":
 	unittest.main()
