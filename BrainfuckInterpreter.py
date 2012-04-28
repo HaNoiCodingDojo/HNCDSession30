@@ -30,11 +30,15 @@ class BrainfuckInterpreter:
     def commandGreat(self):
         self.dataPointer += 1
 
+    def commandLess(self):
+        self.dataPointer -= 1
+
     __commands = {
         "+": commandPlus,
         "-": commandMinus,
         ".": commandDot,
         ">": commandGreat,
+        "<": commandLess,
         }
 
 class BrainfuckInterpreterTest(unittest.TestCase):
