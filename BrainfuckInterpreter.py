@@ -23,7 +23,7 @@ class BrainfuckInterpreter:
         self._cells[0] %= 256
 
     def commandOutput(self):
-        self._output += chr(self._cells[0])
+        self._output += str(chr(self._cells[0]))
 
     __commands = {
         "+": commandPlus,
