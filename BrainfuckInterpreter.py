@@ -57,6 +57,11 @@ class BrainfuckInterpreterTest(unittest.TestCase):
         myInterpreter.eval(".")
         self.assertEquals("\0",myInterpreter.output())
 
+    def test_plus_dot_as_program_output_backslash_1(self):
+        myInterpreter = BrainfuckInterpreter()
+        myInterpreter.eval("+.")
+        self.assertEquals("\1", myInterpreter.output())       
+
 
 if __name__ == "__main__":
 	unittest.main()
